@@ -3,8 +3,9 @@ require('dotenv').config();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const express = require('express');
-const routes = require('./routes/routes');
-const PORT = process.env.PORT || 8080;
+const connection = require('./services/db');
+// const routes = require('./routes/routes');
+const PORT = 3000;
 
 //declare an instance of express (starts a new application)
 const app = express();
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //this is the base endpoint
-app.use('/', routes);
+// app.use('/', routes);
 
 
 //connection to databse
@@ -23,7 +24,7 @@ connection.connect((err) => {
     if(err){
         return console.log('Error de conexión: ' + err.message);
     }else{
-        console.log('Conexión establecida a base de datos MySQL.');
+        console.log('Conexión establecida a base de datos MySQL...');
     }
 });
 
@@ -33,9 +34,3 @@ app.listen(PORT, () => {
 });  
 
 
-
-//comment
-
-app.listen(PORT, () => {
-    console.log(`Server started at http://localhost:${PORT}`);
-});
