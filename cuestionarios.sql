@@ -1,0 +1,5 @@
+CREATE TABLE Cuestionarios (
+    Id_Cuestionario INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(255) NOT NULL,
+    Fecha_Creacion TIMESTAMP NOT NULL DEFAULT NOW()
+);
