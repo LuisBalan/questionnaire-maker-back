@@ -4,7 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const express = require('express');
 const connection = require('./services/db');
-// const routes = require('./routes/routes');
+const routes = require('./routes/routes');
 const PORT = 3000;
 
 //declare an instance of express (starts a new application)
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //this is the base endpoint
-// app.use('/', routes);
+ app.use('/', routes);
 
 
 //connection to databse
