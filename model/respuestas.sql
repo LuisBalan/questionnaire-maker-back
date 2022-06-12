@@ -7,8 +7,12 @@ CREATE TABLE Respuestas (
     EsCorrecta BOOLEAN,
 
     PRIMARY KEY (Id_Cuestionario, Id_Pregunta, Id_Respuesta),
-    FOREIGN KEY(Id_Cuestionario) REFERENCES Cuestionarios(Id_Cuestionario) ON DELETE CASCADE ON UPDATE RESTRICT,
+    FOREIGN KEY(Id_Cuestionario) REFERENCES Preguntas(Id_Cuestionario) ON DELETE CASCADE ON UPDATE RESTRICT,
     FOREIGN KEY(Id_Pregunta) REFERENCES Preguntas(Id_Pregunta) ON DELETE CASCADE ON UPDATE RESTRICT,
     FOREIGN KEY(Id_Respuesta) REFERENCES Preguntas(Id_Pregunta) ON DELETE CASCADE ON UPDATE RESTRICT,
     UNIQUE(Id_Cuestionario, Id_Pregunta, Id_Respuesta)
+
 );
+/*
+--FOREIGN KEY(Id_Respuesta) REFERENCES Preguntas(Id_Pregunta) ON DELETE CASCADE ON UPDATE RESTRICT,
+*/
