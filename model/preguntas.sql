@@ -5,7 +5,7 @@ CREATE TABLE Preguntas (
     Id_Pregunta INT NOT NULL AUTO_INCREMENT,
     Pregunta VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (Id_Pregunta),
+    PRIMARY KEY (Id_Cuestionario, Id_Pregunta),
     FOREIGN KEY(Id_Cuestionario) REFERENCES Cuestionarios(Id_Cuestionario) ON DELETE CASCADE ON UPDATE RESTRICT,
     UNIQUE(Id_Cuestionario, Id_Pregunta)
 );
